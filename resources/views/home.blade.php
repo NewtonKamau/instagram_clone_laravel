@@ -4,10 +4,10 @@
 <div class="container">
    <div class="row">
        <div class="col-3 p-4">
-           <img src="download.png" class="rounded-circle">
+           <img src="/images/download.png" class="rounded-circle">
        </div>
        <div class="col-9 pt-5">
-           <div><h1>Newton Developers</h1></div>
+       <div><h1>{{$user->username}}</h1></div>
            <div class="d-flex">
            <div class="p-3"><strong>123</strong> posts</div>
            <div class="p-3"><strong>24</strong> followers</div>
@@ -21,13 +21,13 @@
 
     <div class="row pt-5">
      <div class="col-4">
-         <img src="download.png" class="w-100">
+         <img src="/images/download.png" class="w-100">
      </div>
         <div class="col-4">
-            <img src="download.png" class="w-100">
+            <img src="/images/download.png" class="w-100">
         </div>
         <div class="col-4">
-            <img src="download.png" class="w-100">
+            <img src="/images/download.png" class="w-100">
         </div>
 
     </div>
