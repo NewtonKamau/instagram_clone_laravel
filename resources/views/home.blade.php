@@ -13,9 +13,9 @@
            <div class="p-3"><strong>24</strong> followers</div>
            <div class="p-3"><strong>11</strong>following</div>
            </div>
-           <div class="p-2 font-weight-bold">NewtonDeveloper.com</div>
-           <div>The creative developer with laravel and vue</div>
-           <div><a href="#">www.newtondevelopers.com</a> </div>
+        <div class="p-2 font-weight-bold">{{$user->profile->title}}</div>
+        <div>{{$user->profile->description}}</div>
+        <div><a href="#">{{ $user->profile->url ?? 'N/A'}}</a> </div>
        </div>
    </div>
 
