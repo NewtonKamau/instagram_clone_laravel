@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+
+use App\Post;
+
 class PostsController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -33,9 +41,18 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
+        $data = request()->validate([
+            'caption' => 'required',
+            'image' => ['required', 'image'],
+
+
+        ]);
+        auth()->user()->posts()->create($data);
+
+        dd(request()->all());
     }
 
     /**
