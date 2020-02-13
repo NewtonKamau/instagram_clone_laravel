@@ -51,7 +51,8 @@ class PostsController extends Controller
         $imagePath = request('image')->store('uploads', 'public');
         auth()->user()->posts()->create($data);
 
-        dd(request()->all());
+         return redirect('/profile/'. auth()->user()->id);
+
     }
 
     /**
