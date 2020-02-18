@@ -58,7 +58,7 @@ class ProfilesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
-    {
+    {   $this->authorize('update', $user->profile);
         return view('profiles.edit', compact('user'));
     }
 
