@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 use App\User;
 
 class ProfilesController extends Controller
@@ -12,13 +14,9 @@ class ProfilesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($user)
+    public function index(User $user)
     {
-        $user = User::findOrFail($user);
-
-        return view('profiles.index', [
-            'user' => $user,
-        ]);
+        return view('profiles.index',compact('user'));
     }
 
     /**
@@ -59,9 +57,9 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('profiles.edit', compact('user'));
     }
 
     /**
@@ -71,9 +69,18 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(User $user)
     {
         //
+        $data = request()->validate([
+            'title'=>'required',
+            'description'=>'required',
+            'url'=>'url',
+            'image'=>'',
+        ]);
+
+       auth()->$user->profile->update($data);
+        return redirect("/profile/{$user->id}");
     }
 
     /**
